@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Conversation de <span th:text="${username}"></span></title>
+</head>
+<body>
+    <h1>Conversation de <span th:text="${username}"></span></h1>
+    <ul>
+        <li th:each="conversation : ${conversations}">
+            <span th:text="${conversation.date}"></span> : <span th:text="${conversation.message}"></span>
+        </li>
+    </ul>
+    <a href="/users">Retour à la liste des utilisateurs</a>
+</body>
+</html>
