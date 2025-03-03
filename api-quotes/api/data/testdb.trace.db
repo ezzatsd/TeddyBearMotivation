@@ -1,0 +1,4 @@
+2025-03-03 15:48:36.701189+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La table "QUOTE" existe déjà
+Table "QUOTE" already exists; SQL statement:
+CREATE TABLE quote ( id BIGINT AUTO_INCREMENT PRIMARY KEY, text VARCHAR(255) NOT NULL ) [42101-232]

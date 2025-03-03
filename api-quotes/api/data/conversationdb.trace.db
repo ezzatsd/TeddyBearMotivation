@@ -1,0 +1,9 @@
+2025-03-03 14:52:35.972724+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUOTE" not found (this database is empty); SQL statement:
+select q1_0.id,q1_0.text from quote q1_0 [42104-232]
+2025-03-03 14:52:46.548995+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUOTE" not found (this database is empty); SQL statement:
+select q1_0.id,q1_0.text from quote q1_0 [42104-232]
+2025-03-03 14:55:16.925162+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUOTE" not found (this database is empty); SQL statement:
+select q1_0.id,q1_0.text from quote q1_0 [42104-232]
