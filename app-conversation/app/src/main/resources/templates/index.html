@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Conversation Motivante</title>
+    <script>
+        async function sendMessage(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+
+            let username = document.getElementById("username").value;
+            let message = document.getElementById("message").value;
+
+            let response = await fetch("/sendMessage", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams({ username, message })
+            });
+
+            let text = await response.text();
+            document.getElementById("quote").innerText = text;
+        }
+    </script>
+</head>
+<body>
+    <h1>Conversation Motivante</h1>
+    <form onsubmit="sendMessage(event)">
+        <label for="username">Nom :</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" required></textarea>
+        <br>
+        <button type="submit">Envoyer</button>
+    </form>
+    <h2>Réponse :</h2>
+    <p id="quote"></p>
+</body>
+</html>
