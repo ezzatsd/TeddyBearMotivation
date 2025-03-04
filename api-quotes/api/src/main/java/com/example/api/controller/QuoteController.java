@@ -17,4 +17,6 @@ public class QuoteController {
     public String getQuote() {
         return quoteService.getRandomQuote();
     }
+    
+    
 }

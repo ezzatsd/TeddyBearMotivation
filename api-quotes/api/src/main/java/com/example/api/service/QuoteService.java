@@ -29,4 +29,6 @@ public class QuoteService {
         logger.info("Random Quote: {}", randomQuote);
         return randomQuote;
     }
+
+
 }
