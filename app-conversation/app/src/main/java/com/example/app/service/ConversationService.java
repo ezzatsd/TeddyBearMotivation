@@ -20,15 +20,18 @@ public class ConversationService {
 
     // Enregistre un message et retourne une citation inspirante
     public String sendMessage(String username, String message) {
+        System.out.println("sendMessage() called with username: " + username + " and message: " + message);
+
         // Enregistrer la conversation en base de données
         Conversation conversation = new Conversation();
         conversation.setUsername(username);
         conversation.setMessage(message);
         conversation.setDate(new Date());
         conversationRepository.save(conversation);
-
+        System.out.println("Message saved in database: " + conversation.getMessage());
         // Appeler l'API pour obtenir une citation inspirante
         String quote = restTemplate.getForObject("http://localhost:8080/api/getQuote", String.class);
+        System.out.println("Received quote: " + quote);
         return quote;
     }
 
