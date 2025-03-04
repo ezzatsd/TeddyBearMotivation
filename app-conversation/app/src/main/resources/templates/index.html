@@ -2,29 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Conversation Motivante</title>
-    <script>
-        async function sendMessage(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
-
-            let username = document.getElementById("username").value;
-            let message = document.getElementById("message").value;
-
-            let response = await fetch("http://localhost:8082", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: new URLSearchParams({ username, message })
-            });
-
-            let text = await response.text();
-            document.getElementById("quote").innerText = text;
-        }
-    </script>
+    
 </head>
 <body>
     <h1>Conversation Motivante</h1>
-    <form onsubmit="sendMessage(event)">
+    <form action="/sendMessage" method="post"></form>
         <label for="username">Nom :</label>
         <input type="text" id="username" name="username" required>
         <br>
@@ -33,7 +15,11 @@
         <br>
         <button type="submit">Envoyer</button>
     </form>
-    <h2>Réponse :</h2>
-    <p id="quote"></p>
+    <div th:if="${response}" class="response-container">
+        <h2> Citation :</h2>
+        <p th:text="${response}"></p>
+    </div>
+</div>
+
 </body>
 </html>
